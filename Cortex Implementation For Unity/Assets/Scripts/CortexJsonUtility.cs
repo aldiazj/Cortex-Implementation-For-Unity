@@ -26,9 +26,12 @@ public class CortexJsonUtility
         j.AddField("jsonrpc", "2.0");
         j.AddField("method", methodName);
         JSONObject paramsObj = new JSONObject(JSONObject.Type.OBJECT);
-        foreach (KeyValuePair<string, string> entry in parameters)
+        if (parameters != null)
         {
-            paramsObj.AddField(entry.Key, entry.Value);
+            foreach (KeyValuePair<string, string> entry in parameters)
+            {
+                paramsObj.AddField(entry.Key, entry.Value);
+            } 
         }
         j.AddField("params", paramsObj);
         j.AddField("id", methodId);

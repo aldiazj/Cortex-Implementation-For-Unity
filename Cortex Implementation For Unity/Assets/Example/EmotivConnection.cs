@@ -11,11 +11,9 @@ public class EmotivConnection : MonoBehaviour
     const string Url = "wss://emotivcortex.com:54321";
 
     // Public fields
-
-    public string username = "XXX";
-    public string userPassword = "XXX!";
-    public string client_id = "XXX";
-    public string client_secret = "com.XXX.XXX";
+    
+    public string client_id = "xxx";
+    public string client_secret = "xxx";
 
     // Private fields
 
@@ -27,6 +25,18 @@ public class EmotivConnection : MonoBehaviour
     public static event MentalCommandEvent OnMentalCommandEvent;
 
     // Properties
+
+    static string username = "XXX";
+
+    static string userPassword = "XXX!";
+
+    public void set_Username(string s)
+    {
+        username = s;
+    }
+
+    public void set_UserPassword(string s)
+    { userPassword = s; }
 
     static string _auth = "";
 
@@ -119,13 +129,34 @@ public class EmotivConnection : MonoBehaviour
 		w = new WebSocket (new Uri (Url));
 		yield return StartCoroutine (w.Connect ());
         StartCoroutine(AccessData());
-        if (_auth == "" || _auth == null)
-            w.SendString(
-                CortexJsonUtility.GetMethodJSON(
-                    "authorize",
-                    (int)MethodsID.Authorize
-                ));
-        StartCoroutine(CreateSession());
+        Dictionary<string, string> loginDictionary = new Dictionary<string, string>();
+
+        //w.SendString(
+        //    CortexJsonUtility.GetMethodJSON
+        //    (
+        //        "getUserLogin",
+        //        (int)MethodsID.UserLogin
+        //        ));
+
+        loginDictionary.Add("username", username);
+        loginDictionary.Add("password", userPassword);
+        loginDictionary.Add("client_id", client_id);
+        loginDictionary.Add("client_secret", client_secret);
+        w.SendString(
+            CortexJsonUtility.GetMethodJSON
+            (
+                "login",
+                (int)MethodsID.Login,
+                loginDictionary
+            ));
+
+        //if (_auth == "" || _auth == null)
+        //    w.SendString(
+        //        CortexJsonUtility.GetMethodJSON(
+        //            "authorize",
+        //            (int)MethodsID.Authorize
+        //        ));
+        //StartCoroutine(CreateSession());
     }
 
     private void OnDisable()

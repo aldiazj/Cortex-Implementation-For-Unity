@@ -22,7 +22,7 @@ public class MessageQuestionSelection
 		if(messageWithSelection == null)
 		{
 			messageWithSelection = GameObject.Instantiate(Resources.Load("Canvas_Selection_Message", typeof(GameObject))) as GameObject;
-			messageWithSelection.name = "Select_Message";
+			messageWithSelection.name = "Canvas_Selection_Message";
 		}
 
 		messageWithSelection.SetActive(true);
