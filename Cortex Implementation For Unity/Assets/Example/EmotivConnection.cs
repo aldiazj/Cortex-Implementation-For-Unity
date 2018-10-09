@@ -8,12 +8,9 @@ public class EmotivConnection : MonoBehaviour
 {
     // Constants
 
-    const string Url = "wss://emotivcortex.com:54321";
-
-    // Public fields
-    
-    public string client_id = "xxx";
-    public string client_secret = "xxx";
+    const string EMOTIV_URL = "wss://emotivcortex.com:54321";    
+    const string CLIENT_ID = "DT0fkgceOzKZgjuoBEyNYkHVAGVPJESnlsBT23y6";
+    const string CLIENT_SECRET = "5XMdQKCJEBz9IGbNBBJPYwgGmzKx4Vy55WQsMbhajvaB5XIQG1XGEGP5Cg2Ou893aDHtMWbsbjMyMI7JK5PDelmDsD59p48e3XiDbpDmawpGIBXPAPMiRpKCwVD6Dbl6";
 
     // Private fields
 
@@ -126,7 +123,7 @@ public class EmotivConnection : MonoBehaviour
     /// </summary>
     IEnumerator InitializeConnection ()
 	{
-		w = new WebSocket (new Uri (Url));
+		w = new WebSocket (new Uri (EMOTIV_URL));
 		yield return StartCoroutine (w.Connect ());
         StartCoroutine(AccessData());
         Dictionary<string, string> loginDictionary = new Dictionary<string, string>();
@@ -140,8 +137,8 @@ public class EmotivConnection : MonoBehaviour
 
         loginDictionary.Add("username", username);
         loginDictionary.Add("password", userPassword);
-        loginDictionary.Add("client_id", client_id);
-        loginDictionary.Add("client_secret", client_secret);
+        loginDictionary.Add("CLIENT_ID", CLIENT_ID);
+        loginDictionary.Add("CLIENT_SECRET", CLIENT_SECRET);
         w.SendString(
             CortexJsonUtility.GetMethodJSON
             (
