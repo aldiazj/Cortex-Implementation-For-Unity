@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This class creates the JSONObjects needed to comunicate with the cortex service
+/// This class creates the JSONObjects needed to comunicate with on JSON-RPC protocol
 /// </summary>
 public class CortexJsonUtility
 {
     /// <summary>
-    /// Creates a JSONObject with to request a given method to the cortex
+    /// Creates a JSONObject to request a given method, then returns it as a string.
     /// </summary>
     /// <param name="methodName">
     /// Method to be called
@@ -39,7 +39,7 @@ public class CortexJsonUtility
     }
 
     /// <summary>
-    /// Creates a JSONObject with the requirements needed to a succesful subscribe method
+    /// Creates a JSONObject with the requirements needed to a successful subscribe method and then returns it as a string.
     /// </summary>
     /// <param name="auth">
     /// authorization token
@@ -74,7 +74,7 @@ public class CortexJsonUtility
     }
 
     /// <summary>
-    /// Gets the value of a field in a JSONObject
+    /// Gets the value of a field in a JSONObject.
     /// </summary>
     /// <param name="jObj">
     /// JSONObject to be searched
