@@ -23,6 +23,7 @@ public class WebSocket
 
 	public void SendString(string str)
 	{
+        Debug.Log(str);
 		Send(Encoding.UTF8.GetBytes(str));
 	}
 

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This class creates the JSONObjects needed to comunicate with the cortex service
+/// This class creates the JSONObjects needed to comunicate with on JSON-RPC protocol
 /// </summary>
 public class CortexJsonUtility
 {
     /// <summary>
-    /// Creates a JSONObject with to request a given method to the cortex
+    /// Creates a JSONObject to request a given method, then returns it as a string.
     /// </summary>
     /// <param name="methodName">
     /// Method to be called
@@ -26,9 +26,12 @@ public class CortexJsonUtility
         j.AddField("jsonrpc", "2.0");
         j.AddField("method", methodName);
         JSONObject paramsObj = new JSONObject(JSONObject.Type.OBJECT);
-        foreach (KeyValuePair<string, string> entry in parameters)
+        if (parameters != null)
         {
-            paramsObj.AddField(entry.Key, entry.Value);
+            foreach (KeyValuePair<string, string> entry in parameters)
+            {
+                paramsObj.AddField(entry.Key, entry.Value);
+            } 
         }
         j.AddField("params", paramsObj);
         j.AddField("id", methodId);
@@ -36,7 +39,7 @@ public class CortexJsonUtility
     }
 
     /// <summary>
-    /// Creates a JSONObject with the requirements needed to a succesful subscribe method
+    /// Creates a JSONObject with the requirements needed to a successful subscribe method and then returns it as a string.
     /// </summary>
     /// <param name="auth">
     /// authorization token
@@ -71,7 +74,7 @@ public class CortexJsonUtility
     }
 
     /// <summary>
-    /// Gets the value of a field in a JSONObject
+    /// Gets the value of a field in a JSONObject.
     /// </summary>
     /// <param name="jObj">
     /// JSONObject to be searched
@@ -89,7 +92,7 @@ public class CortexJsonUtility
             if (resultObj)
             {
                 JSONObject fieldObject = resultObj.GetField(field);
-                value = fieldObject.ToString();
+                value = fieldObject.ToString().Replace("\"", "");
             }
 
         }
