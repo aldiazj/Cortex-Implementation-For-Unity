@@ -92,7 +92,7 @@ public class CortexJsonUtility
             if (resultObj)
             {
                 JSONObject fieldObject = resultObj.GetField(field);
-                value = fieldObject.ToString();
+                value = fieldObject.ToString().Replace("\"", "");
             }
 
         }
