@@ -277,7 +277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &322460847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,26 +978,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1188988704}
-        m_MethodName: Logout
-        m_Mode: 1
+        m_MethodName: Train
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: right
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1943690479}
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -1282,6 +1271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loginCanvas: {fileID: 322460846}
   userInfoCanvas: {fileID: 2072570198}
+  trainingCanvas: {fileID: 1949644242}
+  _auth: 
 --- !u!4 &1188988705
 Transform:
   m_ObjectHideFlags: 0
@@ -2541,7 +2532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1949644243
 MonoBehaviour:
   m_ObjectHideFlags: 0
