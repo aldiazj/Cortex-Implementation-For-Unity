@@ -2,7 +2,11 @@
 
 ## Synopsis
 
-Cortex implementation in Unity in order to use the Emotiv devices as Input in a project
+Cortex implementation in Unity in order to use the Emotiv devices as Input in a project, to know how to implement it follow the steps in the following articles
+
+[Videogame control through EEG p1](https://medium.com/@alejandrodiazjllo/videogame-control-through-eeg-part-1-8c45abe7d3a9)
+
+[Videogame control through EEG p2](https://medium.com/@alejandrodiazjllo/videogame-control-through-eeg-part-2-73e8c3391fee)
 
 
 ## Getting Started
